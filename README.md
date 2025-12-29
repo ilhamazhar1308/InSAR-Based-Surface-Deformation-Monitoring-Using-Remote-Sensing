@@ -1,119 +1,172 @@
-📡 InSAR Surface Deformation Analysis Using Remote Sensing
+# 📡 InSAR-Based Surface Deformation Monitoring Using Remote Sensing
+### Case Study: 2025 Tibet Earthquake
 
-This repository contains a simple yet practical InSAR (Interferometric Synthetic Aperture Radar) processing workflow for monitoring surface deformation using satellite remote sensing data.
+---
 
-The workflow is designed to be general-purpose and applicable to:
+## 🔍 Overview
+This repository provides a **complete yet lightweight InSAR workflow** for monitoring
+surface deformation using **Sentinel-1 SAR remote sensing data**.
 
-Earthquake-induced deformation
+The workflow is implemented in **Python using PyGMTSAR** and demonstrated through
+a **2025 Tibet Earthquake case study**, while remaining reusable for:
+- Earthquake deformation
+- Volcanic deformation
+- Geothermal surface deformation monitoring
 
-Volcanic deformation monitoring
+---
 
-Geothermal field deformation
+## 🌍 Background
+Interferometric Synthetic Aperture Radar (InSAR) measures **ground displacement
+with millimeter-level accuracy** by exploiting phase differences between SAR acquisitions.
 
-Tectonic and land subsidence studies
+This method is widely applied in:
+- Tectonic and seismic studies
+- Volcanology
+- Geothermal reservoir monitoring
 
-📍 Case study applied in this notebook:
-Tibet Plateau Earthquake, 2025
+This project demonstrates a **simple end-to-end InSAR pipeline**
+suitable for **education, research, and portfolio demonstration**.
 
-🧠 Overview
+---
 
-InSAR is a powerful geophysical remote sensing technique used to measure ground deformation with centimeter-to-millimeter accuracy.
-This notebook demonstrates a basic processing chain, including:
+## 📍 Study Area
+- **Region**: Tibetan Plateau
+- **Event**: 2025 Tibet Earthquake
+- **Sensor**: Sentinel-1A
+- **Orbit**: Ascending
+- **Polarization**: VV
+- **Subswath**: IW2
 
-Data preparation
+---
 
-Interferogram generation
+## 🛰️ Data Sources
+- Sentinel-1 SLC (ASF – Alaska Satellite Facility)
+- Copernicus Global DEM (1 arc-second)
+- Precise orbit files (auto-downloaded)
 
-Phase processing
+---
 
-Visualization of surface deformation
+## 🧰 Requirements
 
-The workflow emphasizes clarity and reproducibility, making it suitable for:
+### System
+- Linux / Google Colab / VS code (recommended)
+- Python ≥ 3.9
+- Internet connection (ASF data download)
 
-Students
+### Python Packages
+```
+pygmtsar
+xarray
+dask
+geopandas
+numpy
+pandas
+matplotlib
+pyvista
+panel
+```
 
-Early-stage research
+---
 
-Educational and demonstration purposes
+## 📦 Installation
 
-🛠️ Tools & Libraries
+### 🔹 Option 1: Google Colab (Recommended)
+Open the notebook directly in Google Colab.  
+All dependencies will be installed automatically.
 
-PyGMTSAR – InSAR processing framework
+---
 
-NumPy, Pandas, Xarray – numerical & multidimensional data handling
+### 🔹 Option 2: Local Installation (Linux)
 
-Dask & Distributed – large dataset processing
+```bash
+# Create virtual environment
+python -m venv insar-env
+source insar-env/bin/activate
 
-GeoPandas – spatial data handling
+# Upgrade pip
+pip install --upgrade pip
 
-Matplotlib & PyVista – 2D & 3D visualization
+# Install PyGMTSAR
+pip install pygmtsar
 
-📂 Repository Structure
-insar-surface-deformation-remote-sensing/
-│
-├── insar-surface-deformation-remote-sensing.ipynb
-├── requirements.txt
-└── README.md
+# Install additional dependencies
+pip install xarray dask geopandas numpy pandas matplotlib pyvista panel
+```
+⚠️ GMTSAR binaries are required and must be installed separately on local systems.
 
-⚙️ Installation
-1️⃣ Clone Repository
-git clone https://github.com/USERNAME/REPO_NAME.git
-cd REPO_NAME
+## ASF Credentials
 
-2️⃣ Install Python Dependencies
+You must have an ASF (Alaska Satellite Facility) account.
 
-Make sure Python ≥ 3.9 is installed, then run:
+Inside the notebook, set:
+```
+asf_username = "YOUR_USERNAME"
+asf_password = "YOUR_PASSWORD"
+```
+## Workflow Summary
 
-pip install -r requirements.txt
+1. Environment setup & dependency installation
 
+2. Sentinel-1 SLC data download (ASF)
 
-⚠️ Note:
-GMTSAR system dependencies are not included in requirements.txt because they require system-level installation.
-When using Google Colab, PyGMTSAR handles this automatically.
+3. DEM acquisition
+   
+4. Scene stacking and alignment
 
-3️⃣ Run the Notebook
+5. Interferogram generation
 
-Open the notebook using:
+6. Coherence estimation
 
-Jupyter Notebook
+7. Phase unwrapping (SNAPHU)
 
-Jupyter Lab
+8. LOS displacement computation
 
-Google Colab
+9. 2D & 3D visualization
 
-📌 Case Study
+## Outputs
 
-Region: Tibet Plateau
+- Interferogram phase maps
 
-Event: Earthquake, 2025
+- Coherence maps
 
-Method: InSAR-based surface deformation analysis
+- LOS displacement maps (mm)
 
-Although the example focuses on Tibet 2025, the workflow can be reused for other regions and geohazard applications.
+- Interactive 3D deformation models
 
-🎯 Applications
+- Exported .vtk files
 
-Earthquake deformation mapping
+## Interpretation
 
-Volcano inflation/deflation monitoring
+LOS displacement values indicate ground motion toward or away from the satellite.
+In the Tibet 2025 case study, deformation patterns reflect tectonic displacement
+related to seismic activity.
 
-Geothermal reservoir deformation
+## Applications
 
-Tectonic studies
+- Earthquake deformation analysis
 
-Land subsidence analysis
+- Volcanic inflation/deflation monitoring
 
-👤 Author
+- Geothermal reservoir deformation
+
+- Teaching & academic demonstration
+
+## Limitations
+
+- Atmospheric correction not applied
+
+- Single interferometric pair
+
+- LOS-only deformation (no 3D decomposition)
+
+## Author
 
 M. Ilham Azhar
-Geophysical Engineering Student
+Geophysical Engineering
 Sumatra Institute of Technology (ITERA)
 
-
-📄 License
-
-This project is intended for educational and research purposes.
-
 ## Disclaimer
-This project is intended for educational and research purposes.
-Results should not be used for operational hazard assessment without further validation.
+
+This repository is intended for educational and research purposes only.
+Results are not suitable for operational hazard assessment without further validation.
+
