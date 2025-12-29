@@ -39,6 +39,13 @@ suitable for **education, early-stage research, and technical portfolios**.
 - **Subswath**: IW2  
 
 ---
+## Dataset Study Cases (2025 Tibet Earthquake)
+```
+SCENES = ['S1A_IW_SLC__1SDV_20250105T121424_20250105T121452_057309_070D2E_EF04',
+          'S1A_IW_SLC__1SDV_20250117T121423_20250117T121451_057484_07141C_8E02']
+ORBIT        = 'A'
+SUBSWATH     = 2
+```
 
 ## Data Sources
 - Sentinel-1 SLC data (Alaska Satellite Facility – ASF)
