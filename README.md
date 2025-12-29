@@ -1,151 +1,118 @@
-# InSAR-Based-Surface-Deformation-Monitoring-Using-Remote-Sensing
+📡 InSAR Surface Deformation Analysis Using Remote Sensing
 
-A basic remote sensing and InSAR processing workflow for monitoring surface deformation, applicable to earthquake, volcanic, and geothermal studies.
+This repository contains a simple yet practical InSAR (Interferometric Synthetic Aperture Radar) processing workflow for monitoring surface deformation using satellite remote sensing data.
 
-# InSAR-Based Surface Deformation Monitoring Using Remote Sensing
-### Case Study: 2025 Tibet Earthquake
+The workflow is designed to be general-purpose and applicable to:
 
-## Overview
-This repository presents a basic yet complete workflow for monitoring surface deformation using
-Interferometric Synthetic Aperture Radar (InSAR) and remote sensing data.
-The implementation is developed in Python using **PyGMTSAR** and applied to a **case study of the 2025 Tibet earthquake**.
+Earthquake-induced deformation
 
-The workflow is designed to be **flexible and reusable**, allowing application to:
-- Earthquake deformation analysis
-- Volcanic deformation monitoring
-- Geothermal surface deformation studies
+Volcanic deformation monitoring
 
----
+Geothermal field deformation
 
-## Background
-InSAR is a remote sensing technique that utilizes phase differences between two or more SAR images
-to measure ground surface displacement with millimeter-level accuracy.
-It is widely used in geophysics for detecting deformation caused by:
-- Tectonic earthquakes
-- Volcanic inflation and deflation
-- Geothermal reservoir dynamics
+Tectonic and land subsidence studies
 
-This notebook demonstrates a **simple end-to-end InSAR processing pipeline** suitable for educational
-purposes and early-stage research.
+📍 Case study applied in this notebook:
+Tibet Plateau Earthquake, 2025
 
----
+🧠 Overview
 
-## Study Area
-- **Region**: Tibetan Plateau
-- **Event**: 2025 Tibet Earthquake
-- **Sensor**: Sentinel-1A SAR
-- **Orbit Direction**: Ascending
-- **Polarization**: VV
-- **Subswath**: IW2
+InSAR is a powerful geophysical remote sensing technique used to measure ground deformation with centimeter-to-millimeter accuracy.
+This notebook demonstrates a basic processing chain, including:
 
----
+Data preparation
 
-## Data Sources
-- **Sentinel-1 SLC** data from ASF (Alaska Satellite Facility)
-- **Copernicus Global DEM (1 arc-second)**
-- Orbit files automatically downloaded using PyGMTSAR
+Interferogram generation
 
----
+Phase processing
 
-## Software and Libraries
-- Python 3.x
-- PyGMTSAR
-- GMTSAR
-- Xarray, Dask
-- GeoPandas
-- Matplotlib
-- PyVista & Panel (3D visualization)
-- Google Colab environment
+Visualization of surface deformation
 
----
+The workflow emphasizes clarity and reproducibility, making it suitable for:
 
-## Workflow Overview
-The InSAR processing steps implemented in this notebook are:
+Students
 
-1. **Environment Setup**
-   - Install PyGMTSAR and GMTSAR dependencies
-   - Configure Google Colab and widget manager
-   - Initialize virtual framebuffer for 3D visualization
+Early-stage research
 
-2. **Data Acquisition**
-   - Download Sentinel-1 SLC scenes from ASF
-   - Download precise orbit files
-   - Download Copernicus Global DEM
+Educational and demonstration purposes
 
-3. **Scene Preparation**
-   - Scan SLC data
-   - Select subswath and polarization
-   - Stack initialization
+🛠️ Tools & Libraries
 
-4. **Geometric Processing**
-   - Scene reframing using AOI
-   - DEM loading
-   - Image alignment
-   - Geocoding
+PyGMTSAR – InSAR processing framework
 
-5. **Interferogram Generation**
-   - Phase difference calculation
-   - Topographic phase correction
-   - Multilooking and filtering
-   - Goldstein phase filtering
+NumPy, Pandas, Xarray – numerical & multidimensional data handling
 
-6. **Coherence Estimation**
-   - Correlation calculation
-   - Coherence masking
+Dask & Distributed – large dataset processing
 
-7. **Phase Unwrapping**
-   - SNAPHU unwrapping
-   - Low-coherence masking
+GeoPandas – spatial data handling
 
-8. **Surface Deformation Analysis**
-   - Line-of-Sight (LOS) displacement computation
-   - Conversion to geographic coordinates
-   - Visualization of displacement patterns
+Matplotlib & PyVista – 2D & 3D visualization
 
-9. **Visualization**
-   - 2D maps of interferogram and LOS displacement
-   - Interactive 3D visualization using PyVista
+📂 Repository Structure
+insar-surface-deformation-remote-sensing/
+│
+├── insar-surface-deformation-remote-sensing.ipynb
+├── requirements.txt
+└── README.md
 
----
+⚙️ Installation
+1️⃣ Clone Repository
+git clone https://github.com/USERNAME/REPO_NAME.git
+cd REPO_NAME
 
-## Outputs
-The notebook produces the following outputs:
-- Interferogram phase maps
-- Coherence maps
-- LOS displacement maps (mm)
-- 3D interactive deformation visualizations
-- Exported VTK files for further analysis
+2️⃣ Install Python Dependencies
 
----
+Make sure Python ≥ 3.9 is installed, then run:
 
-## Interpretation
-Positive and negative LOS displacement values represent ground motion toward or away from the satellite.
-In the Tibet earthquake case study, deformation patterns indicate tectonic surface displacement
-associated with seismic activity.
+pip install -r requirements.txt
 
----
 
-## Applications
-This workflow can be applied to:
-- Earthquake deformation monitoring
-- Volcanic inflation/deflation studies
-- Geothermal reservoir deformation analysis
-- Educational demonstrations of InSAR processing
+⚠️ Note:
+GMTSAR system dependencies are not included in requirements.txt because they require system-level installation.
+When using Google Colab, PyGMTSAR handles this automatically.
 
----
+3️⃣ Run the Notebook
 
-## Limitations
-- Atmospheric effects are not explicitly corrected
-- Only a single interferometric pair is analyzed
-- Deformation is measured in LOS direction only
+Open the notebook using:
 
----
+Jupyter Notebook
 
-## Author
-**M. Ilham Azhar**  
-Geophysical Engineering – Sumatra Institute of Technology (ITERA)
+Jupyter Lab
 
----
+Google Colab
+
+📌 Case Study
+
+Region: Tibet Plateau
+
+Event: Earthquake, 2025
+
+Method: InSAR-based surface deformation analysis
+
+Although the example focuses on Tibet 2025, the workflow can be reused for other regions and geohazard applications.
+
+🎯 Applications
+
+Earthquake deformation mapping
+
+Volcano inflation/deflation monitoring
+
+Geothermal reservoir deformation
+
+Tectonic studies
+
+Land subsidence analysis
+
+👤 Author
+
+M. Ilham Azhar
+Geophysical Engineering Student
+Sumatra Institute of Technology (ITERA)
+
+
+📄 License
+
+This project is intended for educational and research purposes.
 
 ## Disclaimer
 This project is intended for educational and research purposes.
