@@ -49,7 +49,7 @@ suitable for **education, research, and portfolio demonstration**.
 ## 🧰 Requirements
 
 ### System
-- Linux / Google Colab / VS code (recommended)
+- Linux / VS Code / Google Colab (recommended)
 - Python ≥ 3.9
 - Internet connection (ASF data download)
 
