@@ -159,7 +159,7 @@ M. Ilham Azhar
 
 Geophysical Engineering
 
-Institute Technology of Sumatera (ITERA)
+Sumatera Institute of Technology (ITERA)
 
 ## Disclaimer
 This repository is intended for educational and research purposes only.
